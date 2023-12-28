@@ -466,4 +466,4 @@ exports.getFullCourseDetails = async (req, res) => {
 		error: error.message,
 	  })
 	}
-  }  
+  }
