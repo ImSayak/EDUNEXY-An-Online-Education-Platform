@@ -52,7 +52,10 @@ exports.categoryPageDetails = async (req, res) => {
       .populate({
         path: "courses",
         match: { status: "Published" },
-        populate: "ratingAndReviews",
+        populate: {
+          path: "ratingAndReviews",
+          path: "instructor"
+        }
       })
       .exec();
 
@@ -84,6 +87,9 @@ exports.categoryPageDetails = async (req, res) => {
       .populate({
         path: "courses",
         match: { status: "Published" },
+        populate: {
+          path: "instructor"
+        }
       })
       .exec();
     console.log();
@@ -92,6 +98,9 @@ exports.categoryPageDetails = async (req, res) => {
       .populate({
         path: "courses",
         match: { status: "Published" },
+        populate: {
+          path: "instructor"
+        }
       })
       .exec();
     const allCourses = allCategories.flatMap((category) => category.courses);

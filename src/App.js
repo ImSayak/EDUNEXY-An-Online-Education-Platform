@@ -15,6 +15,7 @@ import AddCourse from "./components/core/Dashboard/AddCourse"
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses"
 import MyCourses from "./components/core/Dashboard/MyCourses"
 import { About } from "./pages/About";
+import Catalog from "./pages/Catalog";
 import Contact from "./pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Settings from "./components/core/Dashboard/Settings"
@@ -41,6 +42,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
+        <Route path="catalog/:catalogName" element={<Catalog/>} />
         {/* Open Route - for Only Non Logged in User */}
         <Route
           path="login"
