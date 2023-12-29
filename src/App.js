@@ -17,6 +17,7 @@ import MyCourses from "./components/core/Dashboard/MyCourses"
 import { About } from "./pages/About";
 import Catalog from "./pages/Catalog";
 import Contact from "./pages/Contact";
+import CourseDetails from "./pages/CourseDetails"
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Settings from "./components/core/Dashboard/Settings"
 import Dashboard from "./pages/Dashboard"
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route path="catalog/:catalogName" element={<Catalog/>} />
         {/* Open Route - for Only Non Logged in User */}
         <Route
