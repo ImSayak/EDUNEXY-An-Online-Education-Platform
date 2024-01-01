@@ -20,17 +20,19 @@ import Contact from "./pages/Contact";
 import CourseDetails from "./pages/CourseDetails"
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Settings from "./components/core/Dashboard/Settings"
+import VideoDetails from "./components/core/ViewCourse/VideoDetails"
 import Dashboard from "./pages/Dashboard"
-
+import Error from "./pages/Error"
+import ForgotPassword from "./pages/ForgotPassword";
 
 // Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import ForgotPassword from "./pages/ForgotPassword";
 import UpdatePassword from "./pages/UpdatePassword";
 import { ACCOUNT_TYPE } from "./utils/constants"
 import VerifyEmail from "./pages/VerifyEmail";
+import ViewCourse from "./pages/ViewCourse"
 
 function App() {
   const { user } = useSelector((state) => state.profile)
@@ -122,6 +124,27 @@ function App() {
             </>
           )}  
         </Route>
+        
+        {/* For the watching course lectures */}
+        <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
+              />
+            </>
+          )}
+        </Route>
+
+        {/* 404 Page */}
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
