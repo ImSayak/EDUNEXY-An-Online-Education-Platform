@@ -31,7 +31,7 @@ export default function EnrolledCourses() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log("Enrolled COurse--> ", enrolledCourses)
+  console.log("Enrolled Course--> ", enrolledCourses)
 
   return (
     <>
